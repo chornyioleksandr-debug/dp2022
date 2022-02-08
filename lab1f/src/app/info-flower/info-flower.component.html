@@ -1,0 +1,16 @@
+<div class="flowers">
+    <div class="card_container">
+        <div class="card">
+            <img src="{{flowersList[0].img}}" alt="photo">
+            <h4>{{flowersList[0].title}}</h4>
+            <button class="card_button" (click)="clickButton1()">More details</button>
+            <div class="full_info" *ngIf="!isClicked1">{{flowersList[0].description}}</div>
+        </div>
+        <div class="card">
+            <img src="{{flowersList[1].img}}" alt="photo">
+            <h4>{{flowersList[1].title}}</h4>
+            <button class="card_button" (click)="clickButton2()">More details</button>
+            <div class="full_info" *ngIf="!isClicked2">{{flowersList[1].description}}</div>
+        </div>
+    </div>
+</div>
