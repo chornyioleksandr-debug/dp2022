@@ -8,7 +8,7 @@ import { Flowers } from '../interfaces/flowers';
   providedIn: 'root'
 })
 export class FlowersService {
-  url:string = "http://localhost:8061/lab1/Servlet"
+  url:string = "/lab1/Servlet"
 
   constructor(private http:HttpClient) {}
 
