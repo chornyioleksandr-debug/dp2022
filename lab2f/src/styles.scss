@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+$main-color: #8d3188;
+$main-color-2: #c378c5;
+$text-color: white;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    height: 100vh;
+    background-color: $main-color-2;
+}
+
+a {
+    text-decoration: none;
+}

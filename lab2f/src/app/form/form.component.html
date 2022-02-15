@@ -1,0 +1,18 @@
+<div>
+    <form [formGroup]="flowerForm" (ngSubmit)="onSubmit()" class="form">
+
+        <label for="title" class="form-label">Title: </label>
+        <input id="title" type="text" formControlName="title" required class="form-input">
+        
+        <label for="img" class="form-label">URL for image: </label>
+        <input id="img" type="text" formControlName="img" class="form-input">
+        
+        <label for="description" class="form-label">Description: </label>
+        <input id="description" type="text" formControlName="description" required class="form-input">
+
+        <p class="form-message">Complete the form to enable button.</p>
+        <button type="submit" [disabled]="!flowerForm.valid" class="form-button">Submit</button>
+
+    </form>
+</div>
+
