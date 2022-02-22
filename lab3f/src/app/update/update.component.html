@@ -1,13 +1,11 @@
 <div *ngIf="flower" class="flower-form">
     <h3>Update Flower</h3>
-    <form class="form">
-        <input required class="form-input" type="hidden" [(ngModel)]="flower.id">
-        <label for="title" class="form-label">Title: </label>
-        <input required class="form-input" type="text" [(ngModel)]="flower.name"><br><br>
-        <label for="img" class="form-label">URL for image: </label>
-        <input class="form-input" type="text" [(ngModel)]="flower.img"><br><br>
-        <label for="description" class="form-label">Description: </label>
-        <input required class="form-input" type="text" [(ngModel)]="flower.description"><br><br>
-        <button class="form-button" (click)="updateFlower()">Update flower</button>
-    </form>
+    <input required class="form-input" type="hidden" [(ngModel)]="flower.id">
+    <label for="title" class="form-label">Title: </label>
+    <input required class="form-input" type="text" [(ngModel)]="flower.name">
+    <label for="img" class="form-label">URL for image: </label>
+    <input class="form-input" type="text" [(ngModel)]="flower.img">
+    <label for="description" class="form-label">Description: </label>
+    <input required class="form-input" type="text" [(ngModel)]="flower.description">
+    <button class="form-button" (click)="updateFlower()">Update flower</button>
 </div>
