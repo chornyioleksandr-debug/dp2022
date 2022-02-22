@@ -1,0 +1,35 @@
+<div class="flowers">
+    <h2>{{title}}</h2>
+    <div class="card_container">
+        <ul>
+            <div class="card">
+                <li *ngFor="let u of flowerList" (click)="onSelect(u)">
+                    <h4>{{u.name}}</h4>
+                    <img src="{{u.img}}"> 
+                    <p>{{u.description}}</p>
+                    <button class="flower_button" (click)="deleteFlower(u)">Delete</button>
+                </li>
+            </div>
+        </ul>
+    </div>
+
+    <h3 (click)="showAddForm=!showAddForm">Add Flower</h3>
+    <div class="flower-form">
+        <form class="form" *ngIf="showAddForm" #form1="ngForm" (ngSubmit)="addFlower(form1.value)">
+            <input required class="form-input" type="hidden" name="id"  ngModel="-1">
+            
+            <label for="title" class="form-label">Title: </label>
+            <input required class="form-input" type="text" name="name"  ngModel>
+            
+            <label for="img" class="form-label">URL for image: </label>
+            <input class="form-input" type="text" name="img" ngModel>
+            
+            <label for="description" class="form-label">Description: </label>
+            <input required class="form-input" type="text" name="description" ngModel>
+            
+            <button class="form-button" type="submit">Add Flower</button>
+        </form>
+    </div>
+
+    <app-update [flower]="selectedFlower" (updated)="updateFlowers()"></app-update>
+</div>
