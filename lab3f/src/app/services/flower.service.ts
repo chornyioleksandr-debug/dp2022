@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FlowerService {
   list = new BehaviorSubject<Flower[]>([])
-  url:string="http://localhost:8082/lab3/Servlet"
+  url:string="http://localhost:8058/lab4/Servlet"
 
   constructor(private http:HttpClient) { }
 
