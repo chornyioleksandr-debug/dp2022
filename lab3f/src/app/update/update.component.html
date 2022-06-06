@@ -1,6 +1,6 @@
 <div *ngIf="flower" class="flower-form">
     <h3>Update Flower</h3>
-    <input required class="form-input" type="hidden" [(ngModel)]="flower.id">
+    <input required class="form-input" type="hidden" [(ngModel)]="flower._links.self.href">
     <label for="title" class="form-label">Title: </label>
     <input required class="form-input" type="text" [(ngModel)]="flower.name">
     <label for="img" class="form-label">URL for image: </label>

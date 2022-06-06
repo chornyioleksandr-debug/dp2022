@@ -17,15 +17,22 @@ export class ListComponent implements OnInit {
   constructor(private service:FlowerService) { }
 
   ngOnInit(): void {
-    this.updateFlowers()
+    this.getFlowers()
     console.log(this.flowerList)
+  }
+
+  getFlowers(): void {
+    this.service.getFlowers().subscribe(
+      (flowers)=>{
+        this.flowerList = flowers._embedded.flowers;
+       }
+    )
   }
 
   updateFlowers() {
     this.service.getFlowers().subscribe(
       (flowers)=>{
-        this.flowerList = flowers;
-        this.service.setList(flowers);
+       this.flowerList = flowers._embedded.flowers;
       }
     )
   }
@@ -39,7 +46,7 @@ export class ListComponent implements OnInit {
   }
 
   onSelect(flower:Flower){
-    if (this.selectedFlower && flower.id == this.selectedFlower.id) {
+    if (this.selectedFlower && flower._links.self.href == this.selectedFlower._links.self.href) {
       this.selectedFlower = undefined
     } else {
       this.selectedFlower = flower
@@ -49,7 +56,7 @@ export class ListComponent implements OnInit {
   deleteFlower(flower:Flower) {
     this.service.deleteFlower(flower).subscribe(
       ()=>{
-        this.updateFlowers()
+        this.getFlowers()
       }
     )
   }

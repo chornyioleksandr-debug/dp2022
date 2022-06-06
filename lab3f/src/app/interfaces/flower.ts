@@ -1,6 +1,13 @@
 export interface Flower {
-    id:number;
     name:string;
     img:string;
     description:string;
+    _links:{
+        self: {
+            href: string;
+        },
+        flower: {
+            href: string;
+        }
+    }
 }

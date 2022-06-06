@@ -1,31 +1,28 @@
+import { Rest } from './../interfaces/rest';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Flower } from '../interfaces/flower';
 import { HttpClient } from '@angular/common/http';
+import { Flower } from '../interfaces/flower';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FlowerService {
-  list = new BehaviorSubject<Flower[]>([])
-  url:string="http://localhost:8058/lab4/Servlet"
+  url:string="http://localhost:8083/flowers"
 
   constructor(private http:HttpClient) { }
 
-  getFlowers():Observable<Flower[]>{
-    return this.http.get<Flower[]>(this.url, {responseType: 'json'});
+  getFlowers():Observable<Rest>{
+    return this.http.get<Rest>(this.url);
   }
-  postFlower(flower:Flower):Observable<Flower[]>{
-    return this.http.post<Flower[]>(this.url, flower)
+  postFlower(flower:Flower):Observable<Flower>{
+    return this.http.post<Flower>(this.url, flower)
   }
-  putFlower(flower:Flower):Observable<Flower[]>{
-    return this.http.put<Flower[]>(this.url+"/"+flower.id, flower);
+  putFlower(flower:Flower):Observable<Flower>{
+    return this.http.put<Flower>(flower._links.self.href, flower);
   }
-  deleteFlower(flower:Flower):Observable<Flower[]>{
-    return this.http.delete<Flower[]>(this.url+"/"+flower.id);
+  deleteFlower(flower:Flower):Observable<any>{
+    return this.http.delete(flower._links.self.href);
   }
 
-  setList(list:Flower[]) {
-    this.list.next(list);
-  }
 }
